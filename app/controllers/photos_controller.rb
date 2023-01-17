@@ -62,6 +62,19 @@ class PhotosController < ApplicationController
 
   end
 
+  def feed
+    
+    @photos = Array.new
+    
+    @user = User.find_by!(username: params.fetch(:username))
+    @user.leaders.each do |leader|
+      leader.own_photos.each do |photo|  
+        @photos.push(photo)
+      end
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo

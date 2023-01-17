@@ -1,30 +1,8 @@
 
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <h1>
-      <%= @user.username %>
-    </h1>
+<div>
 
-    <ul class="nav nav-pills nav-justified">
-      
-      <li class="nav-item">
-        <%= link_to 'Posts', user_path(@user.username), class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Liked Photos', liked_photos_path(@user.username), class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Feed</a>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Followers', followers_path(@user.username), class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Following', leaders_path(@user.username), class:"nav-link" %>
-      </li>
-    </ul>
+  <%= render "shared/tilenav", user: @user %>
 
-  </div>
 </div>
 
 <%= current_user.own_photos.count %>

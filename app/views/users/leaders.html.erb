@@ -1,3 +1,11 @@
+
+
+<div>
+
+  <%= render "shared/tilenav", user: current_user %>
+
+</div>
+
 <div>
 <% current_user.leaders.each do |person| %>
   <%= render "shared/people_list", person: person %>
