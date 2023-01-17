@@ -56,22 +56,24 @@ p "#{FollowRequest.count} follow requests have been created"
 
 # Create photos
 
-  users.each do |user|
-    photo = user.own_photos.create(
-      caption: Faker::Games::ElderScrolls.city,
-      image: "https://robohash.org/#{rand(9999)}"
-    )
-  
-    user.followers.each do |follower|
-      if rand < 0.5
-        photo.fans << follower
-      end
+  15.times do
+    users.each do |user|
+      photo = user.own_photos.create(
+        caption: Faker::Games::ElderScrolls.city,
+        image: "https://robohash.org/#{rand(9999)}"
+      )
+    
+      user.followers.each do |follower|
+        if rand < 0.5
+          photo.fans << follower
+        end
 
-      if rand < 0.25
-        photo.comments.create(
-          body: Faker::Games::ElderScrolls.creature,
-          author: follower
-        )
+        if rand < 0.25
+          photo.comments.create(
+            body: Faker::Games::ElderScrolls.creature,
+            author: follower
+          )
+        end
       end
     end
   end
