@@ -1,14 +1,13 @@
-
 <div>
 
   <%= render "shared/tilenav", user: @user %>
 
 </div>
 
-<%= current_user.own_photos.count %>
+<div>
 
-<ul>
-  <% current_user.own_photos.each do |photo|%>
+  <% @photos.each do |photo| %>
     <%= render "photos/photo", photo: photo %>
   <% end %>
-</ul>
+
+</div>
